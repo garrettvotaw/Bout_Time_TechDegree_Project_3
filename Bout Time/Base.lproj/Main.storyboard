@@ -222,9 +222,11 @@
                                     <constraint firstItem="TWJ-qk-Qnv" firstAttribute="width" secondItem="TWJ-qk-Qnv" secondAttribute="height" multiplier="303:110" id="ihB-wO-VbN"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZc-z8-rKy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZc-z8-rKy">
                                 <rect key="frame" x="92" y="563" width="191" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lZc-z8-rKy" secondAttribute="height" multiplier="191:50" id="C7t-M5-cjB"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="next_round_fail"/>
                                 <connections>
                                     <action selector="nextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FJ8-1C-vAJ"/>
@@ -235,7 +237,11 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="OLQ-pz-pLY" secondAttribute="trailing" constant="20" id="04D-6r-G28"/>
                             <constraint firstItem="OLQ-pz-pLY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="7CJ-ai-pw7"/>
+                            <constraint firstItem="lZc-z8-rKy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8hG-U5-ObE"/>
+                            <constraint firstItem="lZc-z8-rKy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="76" id="Nd2-ox-bDG"/>
                             <constraint firstItem="OLQ-pz-pLY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="QrE-Xy-AES"/>
+                            <constraint firstItem="lZc-z8-rKy" firstAttribute="top" secondItem="OLQ-pz-pLY" secondAttribute="bottom" constant="62" id="Rri-Yz-dOP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lZc-z8-rKy" secondAttribute="trailing" constant="76" id="gHN-ud-Q7Q"/>
                         </constraints>
                     </view>
                     <connections>

@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         self.becomeFirstResponder()
         self.view.backgroundColor = UIColor(colorLiteralRed: 0, green: 41.0/255.0, blue: 75.0/255.0, alpha: 1)
         setupHistoricalView()
+        nextRoundButton.isHidden = true
     }
     
     
@@ -77,11 +78,6 @@ class ViewController: UIViewController {
         if game.roundsAsked == game.roundsPerGame {
             // Game Over
             showScore()
-            // Hide all the Labels that don't matter
-            firstEventView.isHidden = true
-            secondEventView.isHidden = true
-            thirdEventView.isHidden = true
-            fourthEventView.isHidden = true
         } else {
             setupHistoricalView()
             nextRoundButton.isHidden = true
@@ -95,17 +91,20 @@ class ViewController: UIViewController {
     //*********************
     
     func checkAnswer() {
-        // FIXME: Finish implementing
-        // don't forget to change the nextRound image based on if the question is right or wrong
+        game.roundsAsked += 1
         if game.checkEvents(of: game.currentRoundsRandomEvents) {
             print("YAY ITS CORRECT")
+            game.score += 1
+            nextRoundButton.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
+            nextRoundButton.isHidden = false
         } else {
             print ("nopes sorry")
+            nextRoundButton.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
+            nextRoundButton.isHidden = false
         }
     }
     
     func setupHistoricalView() {
-        // FIXME: Implement Historical View
         game.currentRoundsRandomEvents = game.getRandomDataSet()
         eventOneLabel.text = game.currentRoundsRandomEvents[0].event
         eventTwoLabel.text = game.currentRoundsRandomEvents[1].event
@@ -121,11 +120,24 @@ class ViewController: UIViewController {
     }
     
     func showScore() {
-        // FIXME: Show score (this is the end of the game)
+        firstEventView.isHidden = true
+        secondEventView.isHidden = true
+        thirdEventView.isHidden = true
+        fourthEventView.isHidden = true
+        nextRoundButton.isHidden = true
+        let alert = UIAlertController(title: "GAME OVER", message: "You beat \(game.score) out of \(game.roundsPerGame) rounds!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Play Again", style: .default, handler: {action in self.restartGame()})
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     func restartGame() {
-        // FIXME: Implement restartGameLogic
+        print("Method Called")
+        game.resetGame()
+        firstEventView.isHidden = false
+        secondEventView.isHidden = false
+        thirdEventView.isHidden = false
+        fourthEventView.isHidden = false
     }
     
 }
