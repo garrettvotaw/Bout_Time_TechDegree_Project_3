@@ -43,8 +43,9 @@ class ViewController: UIViewController {
     
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            //FIXME: Implement scoring
-            checkAnswer()
+            if nextRoundButton.isHidden {
+                checkAnswer()
+            }
         }
     }
     
@@ -78,7 +79,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func nextRound(_ sender: Any) {
+    @IBAction func nextRound() {
         startTimer()
         if game.roundsAsked == game.roundsPerGame {
             // Game Over
@@ -104,7 +105,7 @@ class ViewController: UIViewController {
         if game.timeLeft > 0 {
             game.timeLeft -= 1
         } else {
-            showScore()
+            checkAnswer()
             resetTimer()
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680376441F312D4100706D69 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680376431F312D4100706D69 /* InitialViewController.swift */; };
 		685D75041F25475A0093BFF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685D75031F25475A0093BFF8 /* AppDelegate.swift */; };
 		685D75061F25475A0093BFF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685D75051F25475A0093BFF8 /* ViewController.swift */; };
 		685D75091F25475A0093BFF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685D75071F25475A0093BFF8 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		680376431F312D4100706D69 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		685D75001F25475A0093BFF8 /* Bout Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bout Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		685D75031F25475A0093BFF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685D75051F25475A0093BFF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				685D75031F25475A0093BFF8 /* AppDelegate.swift */,
 				685D75051F25475A0093BFF8 /* ViewController.swift */,
+				680376431F312D4100706D69 /* InitialViewController.swift */,
 				68FD45B51F2FC74200743C1F /* Models */,
 				685D75071F25475A0093BFF8 /* Main.storyboard */,
 				685D750A1F25475A0093BFF8 /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680376441F312D4100706D69 /* InitialViewController.swift in Sources */,
 				68FD45B41F2FC71D00743C1F /* HistoricalEvent.swift in Sources */,
 				685D75061F25475A0093BFF8 /* ViewController.swift in Sources */,
 				686B333B1F27F1D6008B5027 /* Game.swift in Sources */,
