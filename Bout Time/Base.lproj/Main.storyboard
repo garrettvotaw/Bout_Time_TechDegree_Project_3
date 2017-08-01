@@ -223,7 +223,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZc-z8-rKy">
-                                <rect key="frame" x="92" y="563" width="191" height="50"/>
+                                <rect key="frame" x="92" y="585.5" width="191" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lZc-z8-rKy" secondAttribute="height" multiplier="191:50" id="C7t-M5-cjB"/>
                                 </constraints>
@@ -232,16 +232,25 @@
                                     <action selector="nextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FJ8-1C-vAJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdm-RI-7LC">
+                                <rect key="frame" x="168" y="527" width="39" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="OLQ-pz-pLY" secondAttribute="trailing" constant="20" id="04D-6r-G28"/>
                             <constraint firstItem="OLQ-pz-pLY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="7CJ-ai-pw7"/>
                             <constraint firstItem="lZc-z8-rKy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8hG-U5-ObE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zdm-RI-7LC" secondAttribute="trailing" constant="152" id="Buq-fU-N9j"/>
+                            <constraint firstItem="zdm-RI-7LC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="152" id="HoR-hL-Xh9"/>
                             <constraint firstItem="lZc-z8-rKy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="76" id="Nd2-ox-bDG"/>
                             <constraint firstItem="OLQ-pz-pLY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="QrE-Xy-AES"/>
-                            <constraint firstItem="lZc-z8-rKy" firstAttribute="top" secondItem="OLQ-pz-pLY" secondAttribute="bottom" constant="62" id="Rri-Yz-dOP"/>
+                            <constraint firstItem="zdm-RI-7LC" firstAttribute="top" secondItem="OLQ-pz-pLY" secondAttribute="bottom" constant="26" id="ca0-sM-eUl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lZc-z8-rKy" secondAttribute="trailing" constant="76" id="gHN-ud-Q7Q"/>
+                            <constraint firstItem="lZc-z8-rKy" firstAttribute="top" secondItem="zdm-RI-7LC" secondAttribute="bottom" constant="20" id="hGI-b7-9z9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -254,6 +263,7 @@
                         <outlet property="nextRoundButton" destination="lZc-z8-rKy" id="ReF-Td-GY7"/>
                         <outlet property="secondEventView" destination="g5r-hs-isN" id="shv-5W-WmL"/>
                         <outlet property="thirdEventView" destination="TWJ-qk-Qnv" id="Xfs-SS-IBU"/>
+                        <outlet property="timerLabel" destination="zdm-RI-7LC" id="HEF-US-pxP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

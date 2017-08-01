@@ -19,11 +19,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondEventView: UIView!
     @IBOutlet weak var thirdEventView: UIView!
     @IBOutlet weak var fourthEventView: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
     var game = Game()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.becomeFirstResponder()
+        timerLabel.textColor = .white
         self.view.backgroundColor = UIColor(colorLiteralRed: 0, green: 41.0/255.0, blue: 75.0/255.0, alpha: 1)
         setupHistoricalView()
         nextRoundButton.isHidden = true
@@ -83,6 +85,14 @@ class ViewController: UIViewController {
             nextRoundButton.isHidden = true
         }
     }
+    
+    
+    
+    //*********************
+    // MARK: Helper Methods
+    //*********************
+    
+    
     
     
     
