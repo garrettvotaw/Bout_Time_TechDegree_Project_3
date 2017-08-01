@@ -13,6 +13,7 @@
 		685D750B1F25475A0093BFF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685D750A1F25475A0093BFF8 /* Assets.xcassets */; };
 		685D750E1F25475A0093BFF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685D750C1F25475A0093BFF8 /* LaunchScreen.storyboard */; };
 		686B333B1F27F1D6008B5027 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686B333A1F27F1D6008B5027 /* Game.swift */; };
+		68FD45B41F2FC71D00743C1F /* HistoricalEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FD45B31F2FC71D00743C1F /* HistoricalEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		685D750D1F25475A0093BFF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		685D750F1F25475A0093BFF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		686B333A1F27F1D6008B5027 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		68FD45B31F2FC71D00743C1F /* HistoricalEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricalEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,22 @@
 			children = (
 				685D75031F25475A0093BFF8 /* AppDelegate.swift */,
 				685D75051F25475A0093BFF8 /* ViewController.swift */,
-				686B333A1F27F1D6008B5027 /* Game.swift */,
+				68FD45B51F2FC74200743C1F /* Models */,
 				685D75071F25475A0093BFF8 /* Main.storyboard */,
 				685D750A1F25475A0093BFF8 /* Assets.xcassets */,
 				685D750C1F25475A0093BFF8 /* LaunchScreen.storyboard */,
 				685D750F1F25475A0093BFF8 /* Info.plist */,
 			);
 			path = "Bout Time";
+			sourceTree = "<group>";
+		};
+		68FD45B51F2FC74200743C1F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				686B333A1F27F1D6008B5027 /* Game.swift */,
+				68FD45B31F2FC71D00743C1F /* HistoricalEvent.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FD45B41F2FC71D00743C1F /* HistoricalEvent.swift in Sources */,
 				685D75061F25475A0093BFF8 /* ViewController.swift in Sources */,
 				686B333B1F27F1D6008B5027 /* Game.swift in Sources */,
 				685D75041F25475A0093BFF8 /* AppDelegate.swift in Sources */,

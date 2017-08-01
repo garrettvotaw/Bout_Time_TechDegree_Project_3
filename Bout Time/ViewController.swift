@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var eventTwoLabel: UILabel!
     @IBOutlet weak var eventThreeLabel: UILabel!
     @IBOutlet weak var eventFourLabel: UILabel!
+    @IBOutlet weak var nextRoundButton: UIButton!
+    @IBOutlet weak var firstEventView: UIView!
+    @IBOutlet weak var secondEventView: UIView!
+    @IBOutlet weak var thirdEventView: UIView!
+    @IBOutlet weak var fourthEventView: UIView!
     var game = Game()
     
     override func viewDidLoad() {
@@ -35,8 +40,6 @@ class ViewController: UIViewController {
         if motion == .motionShake {
             //FIXME: Implement scoring
             checkAnswer()
-            nextRound()
-            print("I've been Shaken, not stirred!")
         }
     }
     
@@ -45,43 +48,76 @@ class ViewController: UIViewController {
     // MARK: IBActions
     //*****************
     @IBAction func downButtonPressed(_ sender: UIButton) {
-        switch sender.tag {
-        case 0: swap(&eventOneLabel.text!, &eventTwoLabel.text!)
-        case 1: swap(&eventTwoLabel.text!, &eventThreeLabel.text!)
-        case 2: swap(&eventThreeLabel.text!, &eventFourLabel.text!)
-        default: break
+        if sender.tag == 0 {
+            swap(&game.currentRoundsRandomEvents[0], &game.currentRoundsRandomEvents[1])
+            updateLabels()
+        } else if sender.tag == 1 {
+            swap(&game.currentRoundsRandomEvents[1], &game.currentRoundsRandomEvents[2])
+            updateLabels()
+        } else if sender.tag == 2 {
+            swap(&game.currentRoundsRandomEvents[2], &game.currentRoundsRandomEvents[3])
+            updateLabels()
         }
     }
 
     @IBAction func upButtonPressed(_ sender: UIButton) {
-        switch sender.tag {
-        case 0: swap(&eventTwoLabel.text!, &eventOneLabel.text!)
-        case 1: swap(&eventThreeLabel.text!, &eventTwoLabel.text!)
-        case 2: swap(&eventFourLabel.text!, &eventThreeLabel.text!)
-        default: break
+        if sender.tag == 0 {
+            swap(&game.currentRoundsRandomEvents[1], &game.currentRoundsRandomEvents[0])
+            updateLabels()
+        } else if sender.tag == 1 {
+            swap(&game.currentRoundsRandomEvents[2], &game.currentRoundsRandomEvents[1])
+            updateLabels()
+        } else if sender.tag == 2 {
+            swap(&game.currentRoundsRandomEvents[3], &game.currentRoundsRandomEvents[2])
+            updateLabels()
         }
     }
+    
+    @IBAction func nextRound(_ sender: Any) {
+        if game.roundsAsked == game.roundsPerGame {
+            // Game Over
+            showScore()
+            // Hide all the Labels that don't matter
+            firstEventView.isHidden = true
+            secondEventView.isHidden = true
+            thirdEventView.isHidden = true
+            fourthEventView.isHidden = true
+        } else {
+            setupHistoricalView()
+            nextRoundButton.isHidden = true
+        }
+    }
+    
     
     
     //*********************
     // MARK: Helper Methods
     //*********************
-    func nextRound() {
-        // FIXME: Implement Next Round Logic
-        
-    }
     
     func checkAnswer() {
-        // FIXME: Implement Answer Checking
+        // FIXME: Finish implementing
+        // don't forget to change the nextRound image based on if the question is right or wrong
+        if game.checkEvents(of: game.currentRoundsRandomEvents) {
+            print("YAY ITS CORRECT")
+        } else {
+            print ("nopes sorry")
+        }
     }
     
     func setupHistoricalView() {
         // FIXME: Implement Historical View
-        let randomEvents = game.getRandomDataSet(amount: game.eventsPerRound)
-        eventOneLabel.text = randomEvents[0].event
-        eventTwoLabel.text = randomEvents[1].event
-        eventThreeLabel.text = randomEvents[2].event
-        eventFourLabel.text = randomEvents[3].event
+        game.currentRoundsRandomEvents = game.getRandomDataSet()
+        eventOneLabel.text = game.currentRoundsRandomEvents[0].event
+        eventTwoLabel.text = game.currentRoundsRandomEvents[1].event
+        eventThreeLabel.text = game.currentRoundsRandomEvents[2].event
+        eventFourLabel.text = game.currentRoundsRandomEvents[3].event
+    }
+    
+    func updateLabels() {
+        eventOneLabel.text = game.currentRoundsRandomEvents[0].event
+        eventTwoLabel.text = game.currentRoundsRandomEvents[1].event
+        eventThreeLabel.text = game.currentRoundsRandomEvents[2].event
+        eventFourLabel.text = game.currentRoundsRandomEvents[3].event
     }
     
     func showScore() {
@@ -91,17 +127,6 @@ class ViewController: UIViewController {
     func restartGame() {
         // FIXME: Implement restartGameLogic
     }
-    
-/* 
-This was my own implentation of swapping the labels until I realized that Apple has already provided one lol
-     
-    func swapValues( firstLabel: inout String, secondLabel: inout String) {
-        var tempLabel: String
-        tempLabel = firstLabel
-        firstLabel = secondLabel
-        secondLabel = tempLabel
-    } 
-*/
     
 }
 
