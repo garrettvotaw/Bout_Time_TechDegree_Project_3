@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var fourthEventView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     var game = Game()
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor(colorLiteralRed: 0, green: 41.0/255.0, blue: 75.0/255.0, alpha: 1)
         setupHistoricalView()
         nextRoundButton.isHidden = true
+        startTimer()
     }
     
     
@@ -77,6 +79,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextRound(_ sender: Any) {
+        startTimer()
         if game.roundsAsked == game.roundsPerGame {
             // Game Over
             showScore()
@@ -89,11 +92,28 @@ class ViewController: UIViewController {
     
     
     //*********************
-    // MARK: Helper Methods
+    // MARK: Timer Code
     //*********************
     
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
+    }
     
+    func updateLabel() {
+        timerLabel.text = "\(game.timeLeft)"
+        if game.timeLeft > 0 {
+            game.timeLeft -= 1
+        } else {
+            showScore()
+            resetTimer()
+        }
+    }
     
+    func resetTimer() {
+        timer?.invalidate()
+        timer = nil
+        game.timeLeft = 60
+    }
     
     
     //*********************
@@ -103,11 +123,13 @@ class ViewController: UIViewController {
     func checkAnswer() {
         game.roundsAsked += 1
         if game.checkEvents(of: game.currentRoundsRandomEvents) {
+            resetTimer()
             print("YAY ITS CORRECT")
             game.score += 1
             nextRoundButton.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
             nextRoundButton.isHidden = false
         } else {
+            resetTimer()
             print ("nopes sorry")
             nextRoundButton.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
             nextRoundButton.isHidden = false
@@ -135,6 +157,7 @@ class ViewController: UIViewController {
         thirdEventView.isHidden = true
         fourthEventView.isHidden = true
         nextRoundButton.isHidden = true
+        timerLabel.isHidden = true
         let alert = UIAlertController(title: "GAME OVER", message: "You beat \(game.score) out of \(game.roundsPerGame) rounds!", preferredStyle: .alert)
         let action = UIAlertAction(title: "Play Again", style: .default, handler: {action in self.restartGame()})
         alert.addAction(action)

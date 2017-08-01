@@ -14,6 +14,7 @@ class Game {
     var roundsAsked: Int = 0
     var score: Int = 0
     let eventsPerRound = 4
+    var timeLeft: Int = 60
     var currentRoundsRandomEvents: [HistoricalEvent] = []
     var historicalDataSet = [HistoricalEvent(event: "Steve Jobs announces iPhone", year: 2007),
             HistoricalEvent(event: "Swift is Announced", year: 2014),
